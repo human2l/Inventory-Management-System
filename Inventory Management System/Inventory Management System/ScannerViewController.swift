@@ -87,7 +87,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     func found(code: String) {
         print(code)
-        userDefaults.setValue(code, forKey: "information")
+        userDefaults.setValue(code, forKey: "newBarcode")
 //        let lmc = ListMakingController()
 //        lmc.textContent = code;
     }

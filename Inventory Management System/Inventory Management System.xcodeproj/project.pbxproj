@@ -13,7 +13,9 @@
 		9F93497722FAC10A00C281BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F93497622FAC10A00C281BC /* Assets.xcassets */; };
 		9F93497A22FAC10A00C281BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F93497822FAC10A00C281BC /* LaunchScreen.storyboard */; };
 		9F93498222FAC42900C281BC /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93498122FAC42900C281BC /* ScannerViewController.swift */; };
-		9F93498422FACF0600C281BC /* ListMakingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93498322FACF0600C281BC /* ListMakingController.swift */; };
+		9F93498422FACF0600C281BC /* ItemAddingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93498322FACF0600C281BC /* ItemAddingController.swift */; };
+		9FCCCDB722FD371400D837F9 /* ListMakingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCCCDB622FD371400D837F9 /* ListMakingController.swift */; };
+		9FCCCDB922FD4B9400D837F9 /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9FCCCDB822FD4B9400D837F9 /* test.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +27,9 @@
 		9F93497922FAC10A00C281BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F93497B22FAC10A00C281BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F93498122FAC42900C281BC /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		9F93498322FACF0600C281BC /* ListMakingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMakingController.swift; sourceTree = "<group>"; };
+		9F93498322FACF0600C281BC /* ItemAddingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddingController.swift; sourceTree = "<group>"; };
+		9FCCCDB622FD371400D837F9 /* ListMakingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMakingController.swift; sourceTree = "<group>"; };
+		9FCCCDB822FD4B9400D837F9 /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +69,9 @@
 				9F93497822FAC10A00C281BC /* LaunchScreen.storyboard */,
 				9F93497B22FAC10A00C281BC /* Info.plist */,
 				9F93498122FAC42900C281BC /* ScannerViewController.swift */,
-				9F93498322FACF0600C281BC /* ListMakingController.swift */,
+				9F93498322FACF0600C281BC /* ItemAddingController.swift */,
+				9FCCCDB622FD371400D837F9 /* ListMakingController.swift */,
+				9FCCCDB822FD4B9400D837F9 /* test.csv */,
 			);
 			path = "Inventory Management System";
 			sourceTree = "<group>";
@@ -130,6 +136,7 @@
 			files = (
 				9F93497A22FAC10A00C281BC /* LaunchScreen.storyboard in Resources */,
 				9F93497722FAC10A00C281BC /* Assets.xcassets in Resources */,
+				9FCCCDB922FD4B9400D837F9 /* test.csv in Resources */,
 				9F93497522FAC10900C281BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,10 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F93498422FACF0600C281BC /* ListMakingController.swift in Sources */,
+				9F93498422FACF0600C281BC /* ItemAddingController.swift in Sources */,
 				9F93497222FAC10900C281BC /* ViewController.swift in Sources */,
 				9F93498222FAC42900C281BC /* ScannerViewController.swift in Sources */,
 				9F93497022FAC10900C281BC /* AppDelegate.swift in Sources */,
+				9FCCCDB722FD371400D837F9 /* ListMakingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
