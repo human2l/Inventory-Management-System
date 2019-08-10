@@ -4,28 +4,26 @@
 //
 //  Created by 邱凯 on 7/8/19.
 //  Copyright © 2019 MountainPeak. All rights reserved.
+//  <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 //
+//<div>Icons made by <a href="https://www.flaticon.com/authors/payungkead" title="Payungkead">Payungkead</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        
-        loadCSV()
+        let storageData = loadCSV()
+        userDefaults.setValue(storageData, forKey: "storageData")
     }
     
-    func loadCSV() {
-        var data = readDataFromCSV(fileName: "test", fileType: "csv")
+    func loadCSV() -> [[String]]{
+        var data = readDataFromCSV(fileName: "storage_data", fileType: "csv")
         data = cleanRows(file: data!)
-        print(data)
         let csvRows = csv(data: data!)
-        print(csvRows[1][1])
-//        print(csvRows[1][1]) //UXM n. 166/167.
+        return csvRows
     }
 
     func readDataFromCSV(fileName:String, fileType: String)-> String!{
