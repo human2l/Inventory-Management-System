@@ -15,13 +15,9 @@ class ListMakingController: UIViewController {
     @IBOutlet weak var addItemBtn: UIButton!
     @IBOutlet weak var exportBtn: UIButton!
     @IBOutlet weak var totalPriceLabel: UILabel!
-    @IBOutlet var popoverScrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.popoverScrollView.layer.cornerRadius = 10
-
-        
         let contentWidth = scrollView.bounds.width
         let contentHeight = scrollView.bounds.height * 16
         scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
@@ -42,6 +38,7 @@ class ListMakingController: UIViewController {
                 button.titleLabel?.numberOfLines = 2
                 button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
                 button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+                //use index as button tag
                 button.tag = index
                 
                 var label = UILabel(frame: CGRect(x: 0, y: 75*index+50, width: 350, height: 20))
@@ -64,10 +61,16 @@ class ListMakingController: UIViewController {
     }
     
     @objc func buttonAction(sender: UIButton!) {
-        popoverScrollView.center = self.view.center
-        
-        print("button tapped")
+        self.performSegue(withIdentifier: "ModifyItem", sender: sender)
     }
+    
+    override func prepare (for segue: UIStoryboardSegue, sender: Any!) {
+        if (segue.identifier == "ModifyItem" && sender is UIButton) {
+            let imvc = segue.destination as! ItemModifyViewController
+            imvc.itemIndex =  (sender as! UIButton).tag
+        }
+    }
+    
     
     @IBAction func onTapAddItemBtn(_ sender: Any) {
         userDefaults.setValue("", forKey: "newBarcode")
@@ -80,7 +83,7 @@ class ListMakingController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
         }else{
-            let fileName = "Tasks.csv"
+            let fileName = "Purchase List.csv"
             let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
             var csvText = "Barcode,Description,Price,Amount,Total Price\n"
             
@@ -90,8 +93,6 @@ class ListMakingController: UIViewController {
                 for index2 in 0...tempPurchaseList[index].count-1{
                     rowString += (tempPurchaseList[index][index2] + ",")
                 }
-                //remove the last character of rowString: ","
-//                rowString.remove(at: rowString.index(before: rowString.endIndex))
                 rowString.append(String(totalPricePerProduct)+"\n")
                 csvText += rowString
             }
@@ -129,4 +130,6 @@ class ListMakingController: UIViewController {
         }))
         self.present(alert, animated: true)
     }
+    
+    
 }

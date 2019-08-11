@@ -40,12 +40,10 @@ class ItemAddingController: UIViewController {
         }
         
         rowsArray = checkExist()
-        print(rowsArray)
         if(rowsArray.count == 0 || rowsArray[0] == [""]){
             nameLabel.text = "None"
             priceLabel.text = String(price)
         }else if(rowsArray.count == 1){
-            print(rowsArray[0])
             nameLabel.text = rowsArray[0][1]
             price = Float(rowsArray[0][2]) as! Float
             priceLabel.text = String(price)
@@ -54,20 +52,6 @@ class ItemAddingController: UIViewController {
             selectProductBtn.isEnabled = true
             nameLabel.text = "Multiple product found! please select product!"
         }
-        
-//        if(rowsArray.count != 1){
-//            selectProductBtn.isEnabled = true
-//            nameLabel.text = "Multiple product found! please select product!"
-//
-//        }else if(rowsArray[0] == [""]){
-//            nameLabel.text = "None"
-//            priceLabel.text = String(price)
-//        }else{
-//            nameLabel.text = rowsArray[0][1]
-//            price = Float(rowsArray[0][2]) as! Float
-//            priceLabel.text = String(price)
-//            refreshAmountAndTotalPrice()
-//        }
     }
     
     private func checkExist() -> [[String]]{
@@ -135,6 +119,5 @@ class ItemAddingController: UIViewController {
             self.present(alert, animated: true)
         }else{ Utils.tempPurchaseList.append([barcodeLabel.text!,nameLabel.text!,String(price),String(amount)])
         }
-//        print(Utils.tempPurchaseList)
     }
 }

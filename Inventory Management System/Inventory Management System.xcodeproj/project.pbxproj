@@ -16,6 +16,7 @@
 		9F93498422FACF0600C281BC /* ItemAddingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93498322FACF0600C281BC /* ItemAddingController.swift */; };
 		9FB060AB22FE6F7D005F04A4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB060AA22FE6F7D005F04A4 /* Utils.swift */; };
 		9FB060B122FEB86C005F04A4 /* arrow-pointing-to-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB060B022FEB86C005F04A4 /* arrow-pointing-to-right.png */; };
+		9FB060B322FF9F8E005F04A4 /* ItemModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB060B222FF9F8E005F04A4 /* ItemModifyViewController.swift */; };
 		9FCCCDB722FD371400D837F9 /* ListMakingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCCCDB622FD371400D837F9 /* ListMakingController.swift */; };
 		9FCCCDB922FD4B9400D837F9 /* storage_data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9FCCCDB822FD4B9400D837F9 /* storage_data.csv */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		9F93498322FACF0600C281BC /* ItemAddingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddingController.swift; sourceTree = "<group>"; };
 		9FB060AA22FE6F7D005F04A4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9FB060B022FEB86C005F04A4 /* arrow-pointing-to-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-pointing-to-right.png"; sourceTree = "<group>"; };
+		9FB060B222FF9F8E005F04A4 /* ItemModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModifyViewController.swift; sourceTree = "<group>"; };
 		9FCCCDB622FD371400D837F9 /* ListMakingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMakingController.swift; sourceTree = "<group>"; };
 		9FCCCDB822FD4B9400D837F9 /* storage_data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = storage_data.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +80,7 @@
 				9FCCCDB822FD4B9400D837F9 /* storage_data.csv */,
 				9FB060AA22FE6F7D005F04A4 /* Utils.swift */,
 				9FB060B022FEB86C005F04A4 /* arrow-pointing-to-right.png */,
+				9FB060B222FF9F8E005F04A4 /* ItemModifyViewController.swift */,
 			);
 			path = "Inventory Management System";
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FB060B322FF9F8E005F04A4 /* ItemModifyViewController.swift in Sources */,
 				9F93498422FACF0600C281BC /* ItemAddingController.swift in Sources */,
 				9F93497222FAC10900C281BC /* HomeViewController.swift in Sources */,
 				9F93498222FAC42900C281BC /* ScannerViewController.swift in Sources */,
