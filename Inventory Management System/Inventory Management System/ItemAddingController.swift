@@ -17,7 +17,7 @@ class ItemAddingController: UIViewController {
     
     @IBOutlet var popoverView: UIScrollView!
     
-    @IBOutlet weak var barcodeLabel: UILabel!
+    @IBOutlet weak var barcodeTextField: UITextField!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
@@ -28,21 +28,45 @@ class ItemAddingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTextFields()
         self.popoverView.layer.cornerRadius = 10
 
+    }
+    
+    //This would show a Done button when user click the BarcodeTextField
+    func setupTextFields() {
+        let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: .init(width: view.frame.size.width, height: 30)))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
+        toolbar.setItems([flexSpace, doneBtn], animated: false)
+        toolbar.sizeToFit()
+        
+        barcodeTextField.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneButtonAction(){
+        if(barcodeTextField.text != ""){
+            userDefaults.setValue(barcodeTextField.text, forKey: "newBarcode")
+            checkHasItem()
+        }
+        self.view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         rowsArray = []
         selectProductBtn.isEnabled = false
         if(userDefaults.string(forKey: "newBarcode") != nil && userDefaults.string(forKey: "newBarcode") != ""){
-            barcodeLabel.text = userDefaults.string(forKey: "newBarcode")
+            barcodeTextField.text = userDefaults.string(forKey: "newBarcode")
         }
-        
+        checkHasItem()
+    }
+    
+    //Do "checkExist()" then update the data to the field
+    private func checkHasItem(){
         rowsArray = checkExist()
         if(rowsArray.count == 0 || rowsArray[0] == [""]){
             nameLabel.text = "None"
-            priceLabel.text = String(price)
+            priceLabel.text = "0.0"
         }else if(rowsArray.count == 1){
             nameLabel.text = rowsArray[0][1]
             price = Float(rowsArray[0][2]) as! Float
@@ -50,10 +74,12 @@ class ItemAddingController: UIViewController {
             refreshAmountAndTotalPrice()
         }else{
             selectProductBtn.isEnabled = true
+            priceLabel.text = "0.0"
             nameLabel.text = "Multiple product found! please select product!"
         }
     }
     
+    //Check "newBarcode" exist or not in the csv list
     private func checkExist() -> [[String]]{
         let storatgeArray = Utils.getStorageArray()
         var rowsArray: [[String]] = []
@@ -71,9 +97,7 @@ class ItemAddingController: UIViewController {
     }
     
     @IBAction func onSelectProduct(_ sender: Any) {
-        
         popoverView.center = self.view.center
-        
         for index in 0...rowsArray.count-1{
             let button = UIButton(frame: CGRect(x: 0, y: 50*index, width: 350, height: 45))
             button.backgroundColor = .black
@@ -84,7 +108,6 @@ class ItemAddingController: UIViewController {
             button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
             button.tag = index
             popoverView.addSubview(button)
-            
         }
         self.view.addSubview(popoverView)
     }
@@ -113,11 +136,11 @@ class ItemAddingController: UIViewController {
     }
     
     @IBAction func onTapSaveBtn(_ sender: Any) {
-        if(barcodeLabel.text == "None" || nameLabel.text == "None" || nameLabel.text == "Multiple product found! please select product!" || amountLabel.text == "0"){
+        if(barcodeTextField.text == "" || nameLabel.text == "None" || nameLabel.text == "Multiple product found! please select product!" || amountLabel.text == "0"){
             let alert = UIAlertController(title: "Form is incomplete!", message: "Please check if: 1.You are saving an empty product. 2.Item with current barcode does not exist. 3.You have not select the number of amount", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
-        }else{ Utils.tempPurchaseList.append([barcodeLabel.text!,nameLabel.text!,String(price),String(amount)])
+        }else{ Utils.tempPurchaseList.append([barcodeTextField.text!,nameLabel.text!,String(price),String(amount)])
         }
     }
 }
