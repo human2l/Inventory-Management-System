@@ -14,9 +14,16 @@ class ItemModifyViewController: UIViewController {
     var itemIndex:Int = -1
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var deleteBtn: UIButton!
+    @IBOutlet weak var saveBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backBtn.layer.cornerRadius = 4
+        deleteBtn.layer.cornerRadius = 4
+        saveBtn.layer.cornerRadius = 4
+        
 //        amount = Utils.tempPurchaseList[itemIndex][3]
         amountLabel.text = Utils.tempPurchaseList[itemIndex][3]
         slider.value = Float(Utils.tempPurchaseList[itemIndex][3]) as! Float

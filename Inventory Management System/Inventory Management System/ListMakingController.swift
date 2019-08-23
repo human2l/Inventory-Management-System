@@ -12,12 +12,19 @@ class ListMakingController: UIViewController {
     let userDefaults = UserDefaults.standard
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var addItemBtn: UIButton!
     @IBOutlet weak var exportBtn: UIButton!
+    @IBOutlet weak var resetBtn: UIButton!
     @IBOutlet weak var totalPriceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backBtn.layer.cornerRadius = 4
+        addItemBtn.layer.cornerRadius = 4
+        exportBtn.layer.cornerRadius = 4
+        resetBtn.layer.cornerRadius = 4
+        
         let contentWidth = scrollView.bounds.width
         let contentHeight = scrollView.bounds.height * 16
         scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)

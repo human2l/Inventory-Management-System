@@ -11,10 +11,14 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var startBtn: UIButton!
+    
     let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        startBtn.layer.cornerRadius = 4
         let storageData = loadCSV()
         userDefaults.setValue(storageData, forKey: "storageData")
     }

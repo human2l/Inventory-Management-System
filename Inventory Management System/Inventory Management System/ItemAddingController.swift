@@ -15,6 +15,7 @@ class ItemAddingController: UIViewController {
     var amount:Int = 0
     var totalPrice:Float = 0.0
     
+    
     @IBOutlet var popoverView: UIScrollView!
     
     @IBOutlet weak var barcodeTextField: UITextField!
@@ -22,12 +23,22 @@ class ItemAddingController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var amountSlider: UISlider!
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var scanBtn: UIButton!
     @IBOutlet weak var selectProductBtn: UIButton!
+    @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var totalPriceLabel: UILabel!
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backBtn.layer.cornerRadius = 4
+        scanBtn.layer.cornerRadius = 4
+        selectProductBtn.layer.cornerRadius = 4
+        saveBtn.layer.cornerRadius = 4
+        
         setupTextFields()
         self.popoverView.layer.cornerRadius = 10
 
@@ -55,6 +66,7 @@ class ItemAddingController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         rowsArray = []
         selectProductBtn.isEnabled = false
+        selectProductBtn.backgroundColor = .gray
         if(userDefaults.string(forKey: "newBarcode") != nil && userDefaults.string(forKey: "newBarcode") != ""){
             barcodeTextField.text = userDefaults.string(forKey: "newBarcode")
         }
@@ -74,6 +86,7 @@ class ItemAddingController: UIViewController {
             refreshAmountAndTotalPrice()
         }else{
             selectProductBtn.isEnabled = true
+            selectProductBtn.backgroundColor = .orange
             priceLabel.text = "0.0"
             nameLabel.text = "Multiple product found! please select product!"
         }
