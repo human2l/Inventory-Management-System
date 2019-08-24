@@ -17,6 +17,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: view.layer.bounds.width, height: 50))
+        button.backgroundColor = .red
+        button.setTitle("Cancel", for: .normal)
+        button.titleLabel?.font = UIFont(name: "System", size: 20)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        
         view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
         
@@ -49,11 +55,19 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = view.layer.bounds
+//        previewLayer.frame = view.layer.bounds
+        previewLayer.frame = CGRect(x: 0, y: 50, width: view.layer.bounds.width, height: view.layer.bounds.height-50)
         previewLayer.videoGravity = .resizeAspectFill
+        view.addSubview(button)
         view.layer.addSublayer(previewLayer)
         
         captureSession.startRunning()
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        captureSession.stopRunning()
+        captureSession = nil
+        dismiss(animated: true)
     }
     
     func failed() {
@@ -94,10 +108,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func found(code: String) {
-        print(code)
         userDefaults.setValue(code, forKey: "newBarcode")
-//        let lmc = ListMakingController()
-//        lmc.textContent = code;
     }
     
     override var prefersStatusBarHidden: Bool {
