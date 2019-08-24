@@ -44,6 +44,11 @@ class ItemAddingController: UIViewController {
 
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        userDefaults.setValue("", forKey: "newBarcode")
+    }
+    
     //This would show a Done button when user click the BarcodeTextField
     func setupTextFields() {
         let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: .init(width: view.frame.size.width, height: 30)))
@@ -140,7 +145,7 @@ class ItemAddingController: UIViewController {
         amount = Int(amountSlider.value)
         price = Float(priceLabel.text!) as! Float
         amountLabel.text = String(amount)
-        totalPriceLabel.text = String(Float(amount) * price)
+        totalPriceLabel.text = String(format: "%.2f", Float(amount) * price)
     }
     
     @IBAction func onTapScan(_ sender: Any) {
@@ -153,7 +158,7 @@ class ItemAddingController: UIViewController {
             let alert = UIAlertController(title: "Form is incomplete!", message: "Please check if: 1.You are saving an empty product. 2.Item with current barcode does not exist. 3.You have not select the number of amount", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
-        }else{ Utils.tempPurchaseList.append([barcodeTextField.text!,nameLabel.text!,String(price),String(amount)])
+        }else{ Utils.tempPurchaseList.append([barcodeTextField.text!,nameLabel.text!,String(price),String(amount)]) 
         }
     }
 }

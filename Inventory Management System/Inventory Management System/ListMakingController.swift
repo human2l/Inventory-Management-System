@@ -16,6 +16,7 @@ class ListMakingController: UIViewController {
     @IBOutlet weak var addItemBtn: UIButton!
     @IBOutlet weak var exportBtn: UIButton!
     @IBOutlet weak var resetBtn: UIButton!
+    @IBOutlet weak var addNewItemBtn: UIButton!
     @IBOutlet weak var totalPriceLabel: UILabel!
     
     override func viewDidLoad() {
@@ -24,6 +25,7 @@ class ListMakingController: UIViewController {
         addItemBtn.layer.cornerRadius = 4
         exportBtn.layer.cornerRadius = 4
         resetBtn.layer.cornerRadius = 4
+        addNewItemBtn.layer.cornerRadius = 4
         
         let contentWidth = scrollView.bounds.width
         let contentHeight = scrollView.bounds.height * 16
@@ -57,12 +59,12 @@ class ListMakingController: UIViewController {
                 label.textColor = .white
                 label.textAlignment = NSTextAlignment.center
                 let totalPricePerProduct = (tempPurchaseList[index][2] as NSString).floatValue * (tempPurchaseList[index][3] as NSString).floatValue
-                label.text = "Price: " + tempPurchaseList[index][2] + " Amount: " + tempPurchaseList[index][3] + " Total Price: " + String(totalPricePerProduct)
+                label.text = "Price: " + tempPurchaseList[index][2] + " Amount: " + tempPurchaseList[index][3] + " Total Price: " + String(format: "%.2f", totalPricePerProduct)
                 totalPrice += totalPricePerProduct
                 scrollView.addSubview(button)
                 scrollView.addSubview(label)
             }
-            totalPriceLabel.text = String(totalPrice)
+            totalPriceLabel.text = String(format: "%.2f", totalPrice)
         }
         
     }
@@ -80,7 +82,8 @@ class ListMakingController: UIViewController {
     
     
     @IBAction func onTapAddItemBtn(_ sender: Any) {
-        userDefaults.setValue("", forKey: "newBarcode")
+    }
+    @IBAction func onTapAddNewItemBtn(_ sender: Any) {
     }
     
     @IBAction func export(_ sender: Any) {
@@ -100,10 +103,10 @@ class ListMakingController: UIViewController {
                 for index2 in 0...tempPurchaseList[index].count-1{
                     rowString += (tempPurchaseList[index][index2] + ",")
                 }
-                rowString.append(String(totalPricePerProduct)+"\n")
+                rowString.append(String(format: "%.2f", totalPricePerProduct)+"\n")
                 csvText += rowString
             }
-            csvText += totalPriceLabel.text!
+            csvText = csvText + ",,,," + totalPriceLabel.text!
             do {
                 try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
             } catch {
