@@ -10,6 +10,7 @@ import UIKit
 
 class ListMakingController: UIViewController {
     let userDefaults = UserDefaults.standard
+    let tempPurchaseList = Utils.tempPurchaseList
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var backBtn: UIButton!
@@ -86,49 +87,65 @@ class ListMakingController: UIViewController {
     @IBAction func onTapAddNewItemBtn(_ sender: Any) {
     }
     
-    @IBAction func export(_ sender: Any) {
-        let tempPurchaseList = Utils.tempPurchaseList
+    @IBAction func onTapExportBtn(_ sender: Any) {
         if(tempPurchaseList.count == 0){
-            let alert = UIAlertController(title: "Warning", message: "You have no items in list, export failed", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Warning", message: "You have no items in list, export failed.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
         }else{
-            let fileName = "Purchase List.csv"
-            let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
-            var csvText = "Barcode,Description,Price,Amount,Total Price\n"
-            
-            for index in 0...tempPurchaseList.count-1{
-                let totalPricePerProduct = (tempPurchaseList[index][2] as NSString).floatValue * (tempPurchaseList[index][3] as NSString).floatValue
-                var rowString = ""
-                for index2 in 0...tempPurchaseList[index].count-1{
-                    rowString += (tempPurchaseList[index][index2] + ",")
-                }
-                rowString.append(String(format: "%.2f", totalPricePerProduct)+"\n")
-                csvText += rowString
+            let alert = UIAlertController(title: "Customer name: ", message: "Please input who are purchasing these items.", preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.text = ""
             }
-            csvText = csvText + ",,,," + totalPriceLabel.text!
-            do {
-                try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
-            } catch {
-                print("Failed to create file")
-                print("\(error)")
-            }
-            
-            let vc = UIActivityViewController(activityItems: [path], applicationActivities: [])
-            present(vc, animated: true, completion: nil)
-            
-            vc.excludedActivityTypes = [
-                UIActivity.ActivityType.assignToContact,
-                UIActivity.ActivityType.saveToCameraRoll,
-                UIActivity.ActivityType.postToFlickr,
-                UIActivity.ActivityType.postToVimeo,
-                UIActivity.ActivityType.postToTencentWeibo,
-                UIActivity.ActivityType.postToTwitter,
-                UIActivity.ActivityType.postToFacebook,
-                UIActivity.ActivityType.openInIBooks
-            ]
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Export", style: .default, handler: { [weak alert] (_) in
+                let textField = alert?.textFields![0]
+                self.export(companyName: textField!.text!)
+            }))
+            self.present(alert, animated: true)
         }
         
+    }
+    
+    private func export(companyName:String){
+        let fileName = "Purchase List.csv"
+        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+        var csvText = ""
+        if(companyName != ""){
+            csvText += companyName + ",,,,\n"
+        }
+        csvText += "Barcode,Description,Price,Amount,Total Price\n"
+        
+        for index in 0...tempPurchaseList.count-1{
+            let totalPricePerProduct = (tempPurchaseList[index][2] as NSString).floatValue * (tempPurchaseList[index][3] as NSString).floatValue
+            var rowString = ""
+            for index2 in 0...tempPurchaseList[index].count-1{
+                rowString += (tempPurchaseList[index][index2] + ",")
+            }
+            rowString.append(String(format: "%.2f", totalPricePerProduct)+"\n")
+            csvText += rowString
+        }
+        csvText = csvText + ",,,," + totalPriceLabel.text!
+        do {
+            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("Failed to create file")
+            print("\(error)")
+        }
+        
+        let vc = UIActivityViewController(activityItems: [path], applicationActivities: [])
+        present(vc, animated: true, completion: nil)
+        
+        vc.excludedActivityTypes = [
+            UIActivity.ActivityType.assignToContact,
+            UIActivity.ActivityType.saveToCameraRoll,
+            UIActivity.ActivityType.postToFlickr,
+            UIActivity.ActivityType.postToVimeo,
+            UIActivity.ActivityType.postToTencentWeibo,
+            UIActivity.ActivityType.postToTwitter,
+            UIActivity.ActivityType.postToFacebook,
+            UIActivity.ActivityType.openInIBooks
+        ]
     }
     
     @IBAction func onTapResetBtn(_ sender: Any) {

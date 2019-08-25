@@ -186,7 +186,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="export:" destination="CFI-50-vSt" eventType="touchUpInside" id="9O9-SV-nkD"/>
+                                    <action selector="onTapExportBtn:" destination="CFI-50-vSt" eventType="touchUpInside" id="zLE-bS-jq3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R78-3c-GQB">
@@ -620,6 +620,7 @@
         <image name="arrow-pointing-to-right.png" width="356" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OAD-zk-TY5"/>
+        <segue reference="5t8-fh-BGX"/>
+        <segue reference="cJI-EX-6Fu"/>
     </inferredMetricsTieBreakers>
 </document>
