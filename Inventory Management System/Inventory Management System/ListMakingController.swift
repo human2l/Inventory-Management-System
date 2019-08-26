@@ -36,7 +36,7 @@ class ListMakingController: UIViewController {
         var totalPrice:Float = 0.0
         if(tempPurchaseList.count != 0){
             for index in 0...tempPurchaseList.count-1{
-                let button = UIButton(frame: CGRect(x: 0, y: 75*index, width: 350, height: 50))
+                let button = UIButton(frame: CGRect(x: 0, y: 75*index, width: Int(contentWidth), height: 50))
                 if(index%2 == 0){
                     button.backgroundColor = .purple
                 }else{
@@ -51,7 +51,7 @@ class ListMakingController: UIViewController {
                 //use index as button tag
                 button.tag = index
                 
-                var label = UILabel(frame: CGRect(x: 0, y: 75*index+50, width: 350, height: 20))
+                var label = UILabel(frame: CGRect(x: 0, y: 75*index+50, width: Int(contentWidth), height: 20))
                 if(index%2 == 0){
                     label.backgroundColor = .purple
                 }else{

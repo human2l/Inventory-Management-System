@@ -606,6 +606,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="5t8-fh-BGX"/>
         <segue reference="Guw-Rs-hz6"/>
     </inferredMetricsTieBreakers>
 </document>
