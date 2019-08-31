@@ -52,6 +52,17 @@ class ItemCreatingController: UIViewController{
     }
     
     @objc func doneButtonAction_Barcode(){
+        let checker:String = "1234567890"
+        let checkString:String = barcodeTextField.text!
+        for char in checkString{
+            if !checker.contains(char){
+                let alert = UIAlertController(title: "Invalid Input!", message: "Only number is valid, please retry.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
+                barcodeTextField.text = ""
+                return
+            }
+        }
         self.view.endEditing(true)
     }
     
@@ -82,6 +93,18 @@ class ItemCreatingController: UIViewController{
     }
     
     @objc func doneButtonAction_Price(){
+        let checker:String = "1234567890."
+        let checkString:String = priceTextField.text!
+        for char in checkString{
+            if !checker.contains(char){
+                let alert = UIAlertController(title: "Invalid Input!", message: "Only number is valid, please retry.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
+                priceTextField.text = "0.0"
+                return
+            }
+        }
+        
         let periodAppearanceTimes = priceTextField.text!.filter { $0 == "." }.count
         if(periodAppearanceTimes > 1){
             let alert = UIAlertController(title: "Invalid Input!", message: "You have input more than one period, please retry.", preferredStyle: .alert)
