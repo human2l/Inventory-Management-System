@@ -27,6 +27,10 @@ class ItemCreatingController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        barcodeTextField.delegate = self as! UITextFieldDelegate
+//        nameTextField.delegate = self as! UITextFieldDelegate
+//        priceTextField.delegate = self as! UITextFieldDelegate
+        
         backBtn.layer.cornerRadius = 4
         saveBtn.layer.cornerRadius = 4
         
@@ -52,19 +56,34 @@ class ItemCreatingController: UIViewController{
     }
     
     @objc func doneButtonAction_Barcode(){
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func barcodeTextFieldOnEndEditing(_ sender: Any) {
+        if(!barcodeValidation()){
+            barcodeTextFieldAlert()
+            barcodeTextField.text = ""
+            barcodeTextField.becomeFirstResponder()
+        }
+    }
+    
+    private func barcodeValidation() -> Bool {
         let checker:String = "1234567890"
         let checkString:String = barcodeTextField.text!
         for char in checkString{
             if !checker.contains(char){
-                let alert = UIAlertController(title: "Invalid Input!", message: "Only number is valid, please retry.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true)
-                barcodeTextField.text = ""
-                return
+                return false
             }
         }
-        self.view.endEditing(true)
+        return true
     }
+    
+    private func barcodeTextFieldAlert(){
+        let alert = UIAlertController(title: "Invalid Input!", message: "Only number is valid, please retry.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
     
     //This would show a Done button when user click the BarcodeTextField
     func setupTextFields_Name() {
@@ -93,30 +112,51 @@ class ItemCreatingController: UIViewController{
     }
     
     @objc func doneButtonAction_Price(){
-        let checker:String = "1234567890."
-        let checkString:String = priceTextField.text!
-        for char in checkString{
-            if !checker.contains(char){
-                let alert = UIAlertController(title: "Invalid Input!", message: "Only number is valid, please retry.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true)
-                priceTextField.text = "0.0"
-                return
-            }
-        }
-        
-        let periodAppearanceTimes = priceTextField.text!.filter { $0 == "." }.count
-        if(periodAppearanceTimes > 1){
-            let alert = UIAlertController(title: "Invalid Input!", message: "You have input more than one period, please retry.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true)
-            return
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func priceTextFieldOnEndEditing(_ sender: Any) {
+        let validationResult = priceTextFieldValidation()
+        if(validationResult != "Valid"){
+            priceTextFieldAlert(alertType: validationResult)
+            priceTextField.text = "0.0"
         }
         if(priceTextField.text == ""){
             priceTextField.text = "0.0"
         }
         refreshAmountAndTotalPrice()
-        self.view.endEditing(true)
+    }
+    
+    
+    private func priceTextFieldValidation() -> String {
+        let checker:String = "1234567890."
+        let checkString:String = priceTextField.text!
+        for char in checkString{
+            if !checker.contains(char){
+                return "Not Number"
+            }
+        }
+        
+        let periodAppearanceTimes = priceTextField.text!.filter { $0 == "." }.count
+        if(periodAppearanceTimes > 1){
+            return "Multiply Period"
+        }
+        return "Valid"
+    }
+    
+    private func priceTextFieldAlert(alertType:String) {
+        switch alertType {
+        case "Not Number":
+            let alert = UIAlertController(title: "Invalid Input!", message: "Only number is valid, please retry.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        case "Multiply Period":
+            let alert = UIAlertController(title: "Invalid Input!", message: "Only one period is allowed, please retry.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        default:
+            return
+        }
     }
     
     

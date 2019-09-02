@@ -334,6 +334,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="barcodeTextFieldOnEndEditing:" destination="EUt-6m-ew1" eventType="editingDidEnd" id="LXF-hZ-L2D"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tOZ-rR-b0R">
                                 <rect key="frame" x="101" y="480" width="817" height="30"/>
@@ -348,6 +351,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="priceTextFieldOnEndEditing:" destination="EUt-6m-ew1" eventType="editingDidEnd" id="dWR-lC-O40"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdq-Qh-IvT">
                                 <rect key="frame" x="401" y="1022" width="213" height="102"/>
@@ -606,6 +612,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OAD-zk-TY5"/>
+        <segue reference="5i5-42-uqW"/>
     </inferredMetricsTieBreakers>
 </document>
