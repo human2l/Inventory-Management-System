@@ -200,6 +200,7 @@ class ItemCreatingController: UIViewController{
             self.present(alert, animated: true)
         }else{
             Utils.tempPurchaseList.append([barcodeTextField.text!,nameTextField.text!,String(price),String(amount)])
+//            userDefaults.synchronize()
         }
     }
     
