@@ -135,6 +135,11 @@ class ListMakingController: UIViewController {
         
         let vc = UIActivityViewController(activityItems: [path], applicationActivities: [])
         present(vc, animated: true, completion: nil)
+        if let popOver = vc.popoverPresentationController {
+            popOver.sourceView = self.view
+            //popOver.sourceRect =
+            //popOver.barButtonItem
+        }
         
         vc.excludedActivityTypes = [
             UIActivity.ActivityType.assignToContact,
