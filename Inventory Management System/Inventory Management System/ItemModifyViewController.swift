@@ -17,6 +17,7 @@ class ItemModifyViewController: UIViewController {
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var noteTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,11 @@ class ItemModifyViewController: UIViewController {
         deleteBtn.layer.cornerRadius = 4
         saveBtn.layer.cornerRadius = 4
         
+        setupTextFields_Note()
+        
 //        amount = Utils.tempPurchaseList[itemIndex][3]
         amountLabel.text = Utils.tempPurchaseList[itemIndex][3]
+        noteTextField.text = Utils.tempPurchaseList[itemIndex][4]
         slider.value = Float(Utils.tempPurchaseList[itemIndex][3]) as! Float
     }
     
@@ -34,6 +38,22 @@ class ItemModifyViewController: UIViewController {
     }
     @IBAction func onTapSaveBtn(_ sender: Any) {
         Utils.tempPurchaseList[itemIndex][3] = amountLabel.text!
+        Utils.tempPurchaseList[itemIndex][4] = noteTextField.text!
+    }
+    
+    //This would show a Done button when user click the BarcodeTextField
+    func setupTextFields_Note() {
+        let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: .init(width: view.frame.size.width, height: 30)))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction_Note))
+        toolbar.setItems([flexSpace, doneBtn], animated: false)
+        toolbar.sizeToFit()
+        
+        noteTextField.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneButtonAction_Note(){
+        self.view.endEditing(true)
     }
     
     @IBAction func onTapDeleteBtn(_ sender: Any) {

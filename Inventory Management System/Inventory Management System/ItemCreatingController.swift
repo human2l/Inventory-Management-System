@@ -27,9 +27,6 @@ class ItemCreatingController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        barcodeTextField.delegate = self as! UITextFieldDelegate
-//        nameTextField.delegate = self as! UITextFieldDelegate
-//        priceTextField.delegate = self as! UITextFieldDelegate
         
         backBtn.layer.cornerRadius = 4
         saveBtn.layer.cornerRadius = 4
@@ -199,7 +196,7 @@ class ItemCreatingController: UIViewController{
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
         }else{
-            Utils.tempPurchaseList.append([barcodeTextField.text!,nameTextField.text!,String(price),String(amount)])
+            Utils.tempPurchaseList.append([barcodeTextField.text!,nameTextField.text!,String(price),String(amount),""])
 //            userDefaults.synchronize()
         }
     }

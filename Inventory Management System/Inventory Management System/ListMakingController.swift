@@ -93,28 +93,38 @@ class ListMakingController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
         }else{
-            let alert = UIAlertController(title: "Customer name: ", message: "Please input who are purchasing these items.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Customer name: ", message: "Please input customer name and leave a note (optional)", preferredStyle: .alert)
             alert.addTextField { (textField) in
-                textField.text = ""
+                textField.placeholder = "Customer Name:"
+                textField.clearButtonMode = UITextField.ViewMode.whileEditing
             }
+            alert.addTextField { (textField) in
+                textField.placeholder = "Note:"
+                textField.clearButtonMode = UITextField.ViewMode.whileEditing
+            }
+            
             alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
             alert.addAction(UIAlertAction(title: "Export", style: .default, handler: { [weak alert] (_) in
-                let textField = alert?.textFields![0]
-                self.export(companyName: textField!.text!)
+                let customerTextField = alert?.textFields![0]
+                let noteTextField = alert?.textFields![1]
+                self.export(companyName: customerTextField!.text!,note: noteTextField!.text!)
             }))
             self.present(alert, animated: true)
         }
         
     }
     
-    private func export(companyName:String){
+    private func export(companyName:String, note:String){
         let fileName = "Purchase List.csv"
         let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
         var csvText = ""
         if(companyName != ""){
-            csvText += companyName + ",,,,\n"
+            csvText += "Customer Name:" + "," + companyName + ",,,,\n"
         }
-        csvText += "Barcode,Description,Price,Amount,Total Price\n"
+        if(note != ""){
+            csvText += "Note:" + "," + note + ",,,,\n"
+        }
+        csvText += "Barcode,Description,Price,Amount,Note,Total Price\n"
         
         for index in 0...tempPurchaseList.count-1{
             let totalPricePerProduct = (tempPurchaseList[index][2] as NSString).floatValue * (tempPurchaseList[index][3] as NSString).floatValue
@@ -125,7 +135,7 @@ class ListMakingController: UIViewController {
             rowString.append(String(format: "%.2f", totalPricePerProduct)+"\n")
             csvText += rowString
         }
-        csvText = csvText + ",,,," + totalPriceLabel.text!
+        csvText = csvText + ",,,,," + totalPriceLabel.text!
         do {
             try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
         } catch {

@@ -158,7 +158,7 @@ class ItemAddingController: UIViewController {
             let alert = UIAlertController(title: "Form is incomplete!", message: "Please check if: 1.You are saving an empty product. 2.Item with current barcode does not exist. 3.You have not select the number of amount", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
-        }else{ Utils.tempPurchaseList.append([barcodeTextField.text!,nameLabel.text!,String(price),String(amount)]) 
+        }else{ Utils.tempPurchaseList.append([barcodeTextField.text!,nameLabel.text!,String(price),String(amount),""]) 
         }
     }
 }
