@@ -38,10 +38,14 @@ class ListMakingController: UIViewController {
             for index in 0...tempPurchaseList.count-1{
                 let button = UIButton(frame: CGRect(x: 0, y: 75*index, width: Int(contentWidth), height: 50))
                 if(index%2 == 0){
-                    button.backgroundColor = .purple
+                    button.backgroundColor = UIColor(red: 0/255.0, green: 150/255.0, blue: 255/255.0, alpha: 1.0)
                 }else{
-                    button.backgroundColor = .orange
+                    button.backgroundColor = UIColor(red: 255/255.0, green: 147/255.0, blue: 0/255.0, alpha: 1.0)
                 }
+                
+                //maskedCorners is to determine which part of corner should be change their radius
+                button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+                button.layer.cornerRadius = 4
                 
                 button.setTitle(tempPurchaseList[index][1], for: .normal)
                 button.titleLabel?.font = UIFont(name: "System", size: 10)
@@ -53,10 +57,16 @@ class ListMakingController: UIViewController {
                 
                 var label = UILabel(frame: CGRect(x: 0, y: 75*index+50, width: Int(contentWidth), height: 20))
                 if(index%2 == 0){
-                    label.backgroundColor = .purple
+                    label.backgroundColor = UIColor(red: 0/255.0, green: 150/255.0, blue: 255/255.0, alpha: 1.0)
                 }else{
-                    label.backgroundColor = .orange
+                    label.backgroundColor = UIColor(red: 255/255.0, green: 147/255.0, blue: 0/255.0, alpha: 1.0)
                 }
+                
+                //set masksToBounds to true can enable label's corner radius modification
+                label.layer.masksToBounds = true
+                label.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+                label.layer.cornerRadius = 4
+                
                 label.textColor = .white
                 label.textAlignment = NSTextAlignment.center
                 let totalPricePerProduct = (tempPurchaseList[index][2] as NSString).floatValue * (tempPurchaseList[index][3] as NSString).floatValue
@@ -143,6 +153,7 @@ class ListMakingController: UIViewController {
             print("\(error)")
         }
         
+        //On ipad, a popover is needed to show the "share" options
         let vc = UIActivityViewController(activityItems: [path], applicationActivities: [])
         present(vc, animated: true, completion: nil)
         if let popOver = vc.popoverPresentationController {
