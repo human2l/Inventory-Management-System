@@ -12,6 +12,7 @@ class ListMakingController: UIViewController {
     let userDefaults = UserDefaults.standard
     let tempPurchaseList = Utils.tempPurchaseList
     
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var addItemBtn: UIButton!
@@ -28,14 +29,17 @@ class ListMakingController: UIViewController {
         resetBtn.layer.cornerRadius = 4
         addNewItemBtn.layer.cornerRadius = 4
         
-        let contentWidth = scrollView.bounds.width
-        let contentHeight = scrollView.bounds.height * 16
-        scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
+        var contentWidth:CGFloat = 0.0
+        var contentHeight:CGFloat = 0.0
+        contentWidth = scrollView.bounds.width
+//        contentHeight = scrollView.bounds.height * 16
+//        scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
         
         var tempPurchaseList = Utils.tempPurchaseList
         var totalPrice:Float = 0.0
         if(tempPurchaseList.count != 0){
             for index in 0...tempPurchaseList.count-1{
+                
                 let button = UIButton(frame: CGRect(x: 0, y: 75*index, width: Int(contentWidth), height: 50))
                 if(index%2 == 0){
                     button.backgroundColor = UIColor(red: 0/255.0, green: 150/255.0, blue: 255/255.0, alpha: 1.0)
@@ -74,10 +78,18 @@ class ListMakingController: UIViewController {
                 totalPrice += totalPricePerProduct
                 scrollView.addSubview(button)
                 scrollView.addSubview(label)
+                //adjust list height
+                contentHeight += 75.0
             }
             totalPriceLabel.text = String(format: "%.2f", totalPrice)
+            
+            refreshContentSize(contentWidth: contentWidth, contentHeight: contentHeight)
         }
         
+    }
+    
+    private func refreshContentSize(contentWidth:CGFloat,contentHeight:CGFloat){
+        scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
     }
     
     @objc func buttonAction(sender: UIButton!) {
