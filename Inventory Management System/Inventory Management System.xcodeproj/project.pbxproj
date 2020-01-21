@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F10F46123D684C6008D1F20 /* 1704636.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F10F46023D684C5008D1F20 /* 1704636.jpg */; };
 		9F93497022FAC10900C281BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93496F22FAC10900C281BC /* AppDelegate.swift */; };
 		9F93497222FAC10900C281BC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93497122FAC10900C281BC /* HomeViewController.swift */; };
 		9F93497522FAC10900C281BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F93497322FAC10900C281BC /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F10F46023D684C5008D1F20 /* 1704636.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1704636.jpg; sourceTree = "<group>"; };
 		9F93496C22FAC10900C281BC /* Inventory Management System.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inventory Management System.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F93496F22FAC10900C281BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F93497122FAC10900C281BC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				9FB060B022FEB86C005F04A4 /* arrow-pointing-to-right.png */,
 				9FB060B222FF9F8E005F04A4 /* ItemModifyViewController.swift */,
 				9FA13BD72310C5250095D4DC /* ItemCreatingController.swift */,
+				9F10F46023D684C5008D1F20 /* 1704636.jpg */,
 			);
 			path = "Inventory Management System";
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F93497A22FAC10A00C281BC /* LaunchScreen.storyboard in Resources */,
+				9F10F46123D684C6008D1F20 /* 1704636.jpg in Resources */,
 				9F93497722FAC10A00C281BC /* Assets.xcassets in Resources */,
 				9FCCCDB922FD4B9400D837F9 /* storage_data.csv in Resources */,
 				9FB060B122FEB86C005F04A4 /* arrow-pointing-to-right.png in Resources */,

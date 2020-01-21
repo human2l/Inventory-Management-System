@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,15 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inventory Management System" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THa-H3-Vbn">
-                                <rect key="frame" x="69" y="125" width="237" height="171"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
-                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1704636.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="veF-Sa-K7S">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vnf-eg-ZeM">
-                                <rect key="frame" x="40" y="487" width="295" height="41"/>
+                                <rect key="frame" x="40" y="486" width="295" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="2.9630493258991919e-07" green="0.58823531866073608" blue="0.99999994039535522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
@@ -34,13 +29,28 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CFI-50-vSt" kind="show" id="4Oh-Ni-E9A"/>
+                                    <segue destination="CFI-50-vSt" kind="presentation" modalPresentationStyle="fullScreen" id="4Oh-Ni-E9A"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mountain Peak Pty LTD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LrG-nC-ZAS">
+                                <rect key="frame" x="108" y="617" width="159" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inventory Management System" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhd-6G-HL0">
+                                <rect key="frame" x="19" y="124" width="336" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cKK-Lv-YFg"/>
                     <connections>
                         <outlet property="startBtn" destination="Vnf-eg-ZeM" id="UTs-eG-jez"/>
                     </connections>
@@ -71,7 +81,7 @@
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="CFI-50-vSt" kind="show" id="fuQ-qW-mq1"/>
+                                                    <segue destination="CFI-50-vSt" kind="presentation" modalPresentationStyle="fullScreen" id="fuQ-qW-mq1"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -102,7 +112,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onTapSaveBtn:" destination="w9f-AO-h9i" eventType="touchUpInside" id="hHt-xh-LKG"/>
-                                    <segue destination="CFI-50-vSt" kind="show" identifier="BackToListMakingView" id="xZ7-Eg-Gbi"/>
+                                    <segue destination="CFI-50-vSt" kind="presentation" identifier="BackToListMakingView" modalPresentationStyle="fullScreen" id="xZ7-Eg-Gbi"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGH-ls-63g">
@@ -151,7 +161,6 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1IP-CC-7Xm">
                                 <rect key="frame" x="38" y="228" width="298" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -159,6 +168,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3R8-4H-qCT"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1tx-06-Xf3"/>
                     <connections>
                         <outlet property="amountLabel" destination="WbA-mo-neT" id="pPK-NE-aJ8"/>
                         <outlet property="backBtn" destination="B7a-BK-GcC" id="9LT-dP-ThE"/>
@@ -190,7 +200,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onTapAddItemBtn:" destination="CFI-50-vSt" eventType="touchUpInside" id="AGC-yX-Z35"/>
-                                    <segue destination="cho-72-hQc" kind="show" id="5t8-fh-BGX"/>
+                                    <segue destination="cho-72-hQc" kind="presentation" modalPresentationStyle="fullScreen" id="5t8-fh-BGX"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W0G-fm-eSU">
@@ -233,7 +243,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onTapAddNewItemBtn:" destination="CFI-50-vSt" eventType="touchUpInside" id="qjT-Vl-2co"/>
-                                    <segue destination="EUt-6m-ew1" kind="show" id="TeA-gI-1kr"/>
+                                    <segue destination="EUt-6m-ew1" kind="presentation" modalPresentationStyle="fullScreen" id="TeA-gI-1kr"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Qc-ng-m5X">
@@ -251,7 +261,7 @@
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="show" identifier="BackToHomeView" id="KXt-QG-ap9"/>
+                                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="BackToHomeView" modalPresentationStyle="fullScreen" id="KXt-QG-ap9"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -275,6 +285,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="TYt-VE-H5f"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Az2-no-cSE"/>
                     <connections>
                         <outlet property="addItemBtn" destination="7SJ-O0-V9p" id="4pa-VE-Rhu"/>
                         <outlet property="addNewItemBtn" destination="ZvH-Pv-pwx" id="5f4-he-RNS"/>
@@ -283,7 +294,7 @@
                         <outlet property="resetBtn" destination="Sps-7H-quy" id="viL-zf-yBA"/>
                         <outlet property="scrollView" destination="W0G-fm-eSU" id="7Xr-78-R30"/>
                         <outlet property="totalPriceLabel" destination="0pJ-9Z-lFv" id="8Mk-mx-Q4W"/>
-                        <segue destination="w9f-AO-h9i" kind="show" identifier="ModifyItem" id="9JY-7y-qgf"/>
+                        <segue destination="w9f-AO-h9i" kind="presentation" identifier="ModifyItem" modalPresentationStyle="fullScreen" id="9JY-7y-qgf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPc-TZ-DDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -308,7 +319,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onTapSaveBtn:" destination="EUt-6m-ew1" eventType="touchUpInside" id="TKs-sk-ffJ"/>
-                                    <segue destination="CFI-50-vSt" kind="show" id="OAD-zk-TY5"/>
+                                    <segue destination="CFI-50-vSt" kind="presentation" modalPresentationStyle="fullScreen" id="OAD-zk-TY5"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ll-mf-CXV">
@@ -325,7 +336,7 @@
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="CFI-50-vSt" kind="show" id="5i5-42-uqW"/>
+                                                    <segue destination="CFI-50-vSt" kind="presentation" modalPresentationStyle="fullScreen" id="5i5-42-uqW"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -391,7 +402,6 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Barcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iay-Ph-X6u">
                                 <rect key="frame" x="164" y="101" width="174" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
@@ -401,14 +411,12 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tOZ-rR-b0R">
                                 <rect key="frame" x="37" y="173" width="299" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KPp-ZO-Okv">
                                 <rect key="frame" x="164" y="218" width="172" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
@@ -433,6 +441,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="NLI-eU-E1e"/>
                     </view>
+                    <navigationItem key="navigationItem" id="67J-T3-u7G"/>
                     <connections>
                         <outlet property="amountLabel" destination="Gwo-Oh-7X9" id="oh2-DZ-Hus"/>
                         <outlet property="backBtn" destination="A6J-VE-BxJ" id="wdq-eG-KOk"/>
@@ -446,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5X-3x-EnN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="237.59999999999999" y="745.27736131934034"/>
+            <point key="canvasLocation" x="-529" y="790"/>
         </scene>
         <!--Item Adding Controller-->
         <scene sceneID="gWt-nJ-Vpk">
@@ -548,7 +557,6 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ssd-Vq-ap1">
                                 <rect key="frame" x="156" y="108" width="174" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
@@ -569,7 +577,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onTapSaveBtn:" destination="cho-72-hQc" eventType="touchUpInside" id="KXj-c4-RfC"/>
-                                    <segue destination="CFI-50-vSt" kind="show" id="Guw-Rs-hz6"/>
+                                    <segue destination="CFI-50-vSt" kind="presentation" modalPresentationStyle="fullScreen" id="Guw-Rs-hz6"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bxS-zz-TbW">
@@ -586,7 +594,7 @@
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="CFI-50-vSt" kind="show" id="cJI-EX-6Fu"/>
+                                                    <segue destination="CFI-50-vSt" kind="presentation" modalPresentationStyle="fullScreen" id="cJI-EX-6Fu"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -600,7 +608,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="onTapScan:" destination="cho-72-hQc" eventType="touchUpInside" id="aeH-7U-O6R"/>
-                                                    <segue destination="apJ-8s-3sF" kind="show" id="Bu1-iE-N2L"/>
+                                                    <segue destination="apJ-8s-3sF" kind="presentation" modalPresentationStyle="fullScreen" id="Bu1-iE-N2L"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -611,6 +619,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="o7g-as-dwp"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Isa-aA-vgI"/>
                     <connections>
                         <outlet property="amountLabel" destination="wCJ-tl-fqX" id="R4W-yw-dUN"/>
                         <outlet property="amountSlider" destination="zX9-IA-GEf" id="B2i-Sc-cyk"/>
@@ -655,12 +664,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kZ8-Yg-6BB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="rYO-Mu-TV6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4au-M0-akp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2001" y="36"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1704636.jpg" width="720" height="1280"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4Oh-Ni-E9A"/>
     </inferredMetricsTieBreakers>
